@@ -1,12 +1,11 @@
-import Cabecalho from "./components/Cabecalho";
-import logo from './components/Cabecalho/logo.png'
+import PaginaInicial from "./components/PaginaInicial";
 import "./styles/estilosGlobais.scss"
 
 function App() {
   return (
-    <div >
-      <Cabecalho imagem={logo}/>
-    </div>
+    <>
+      <PaginaInicial/>
+    </>
   );
 }
 
