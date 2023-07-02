@@ -1,38 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Tags from '../Tags'
 import fotos from './fotos.json'
 import styles from './Galeria.module.scss'
-import favorito from './favorito.png'
-import open from './open.png'
+import Cards from '../Cards'
 
 
 export default function Galeria() {
+  const tags = [...new Set(fotos.map(tag => tag.tag))]
+  const [novasFotos, setNovasFotos]= useState(fotos)
+
+  const filtrarTag = (tag)=>{
+    const fotosFiltradas = fotos.filter((foto) =>{return( foto.tag === tag)})
+    setNovasFotos(fotosFiltradas)
+  }
+  
+
+
   return (
     <section className={styles.galeria}>
       
         <h2>Navegue pela galeria</h2>
-        <Tags/>
-        <ul className={styles.galeria__cards}>
-          {fotos.map( (foto) => {
-            return(
-            <li key={foto.id} className={styles.galeria__card}>
-              <img 
-                className={styles.galeria__imagem}
-                src={foto.imagem}
-                alt={foto.titulo}
-              />
-              <p className={styles.galeria__descricao}>{fotos.titulo}</p>
-              <div>
-                <p>{foto.creditos}</p>
-                <span>
-                  <img src={favorito} alt="Icone coração de curtir" />
-                  <img src={open} alt="ícone de abrir modal" />
-                </span>
-              </div>
-            </li>
-            )
-          })}
-        </ul>
+        <Tags tags={tags} filtrar={filtrarTag} setNovasFotos={setNovasFotos}/>
+        <Cards estilo={styles} itens={novasFotos}/>
     </section>
   )
 }

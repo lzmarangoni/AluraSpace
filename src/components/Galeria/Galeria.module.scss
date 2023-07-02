@@ -2,21 +2,21 @@
 
 .galeria {
   font-family: $fonte-normal;
-  margin-bottom: 2rem;
+  
 
 
   h2 {
     color: $roxo;
     font-size: 24px;
-    margin-left: 24px
+   justify-content: center;
   }
 
   &__cards {
     list-style: none;
-    padding: 0;
+    padding: 1.25rem 0;
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
 
