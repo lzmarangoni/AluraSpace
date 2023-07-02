@@ -3,6 +3,8 @@ import Menu from '../Menu'
 import Cabecalho from '../Cabecalho'
 import styles from './PaginaInicial.module.scss'
 import Banner from '../Banner'
+import Rodape from '../Rodape'
+import Galeria from '../Galeria'
 
 
 export default function PaginaInicial() {
@@ -16,6 +18,12 @@ export default function PaginaInicial() {
             </section>
            
         </main>
+        <div>
+          <Galeria/>
+        </div>
+        <Rodape/>
+      
+    
     </>
   
   )
